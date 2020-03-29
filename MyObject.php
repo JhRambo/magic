@@ -16,6 +16,7 @@
 
         function __call($name, $arguments)
         {
+            print_r(func_get_args());
             echo '我是不存在的函数，通过魔术方法调用的';
         }
 

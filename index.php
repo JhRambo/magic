@@ -11,9 +11,18 @@
 // echo $obj;              //默认调用__toString函数
 // echo $obj();            //默认调用__invoke函数
 
-function __autoload($class_name) 
-{
-    echo '自动加载未定义的类';
-}
+# 自动加载1
+// function __autoload($class_name) 
+// {
+//     echo '自动加载未定义的类'.PHP_EOL;
+//     require $class_name.'.php';
+// }
+
+# 自动加载2
+spl_autoload_register(function($class_name){
+    echo '自动加载未定义的类'.PHP_EOL;
+    require $class_name.'.php';
+});
+
 //当前页面 Pserson 类不存在则自动调用 __autoload() 方法，传入参数 Person
-new Person("张三","20");
+new MyClass("张三","20");
